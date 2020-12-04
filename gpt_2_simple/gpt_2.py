@@ -100,7 +100,7 @@ def start_tf_sess(threads=-1, server=None, per_process_gpu_memory_fraction=1):
     """
     config = tf.compat.v1.ConfigProto()
     config.gpu_options.allow_growth = True
-    config.per_process_gpu_memory_fraction = per_process_gpu_memory_fraction
+    config.gpu_options.per_process_gpu_memory_fraction = per_process_gpu_memory_fraction
     config.graph_options.rewrite_options.layout_optimizer = rewriter_config_pb2.RewriterConfig.OFF
     if threads > 0:
         config.intra_op_parallelism_threads = threads
